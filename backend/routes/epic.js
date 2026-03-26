@@ -3,13 +3,14 @@ const axios = require('axios');
 const cacheMiddleware = require('../middleware/cache');
 
 const router = express.Router();
-const NASA_API_KEY = process.env.NASA_API_KEY;
-const NASA_BASE = 'https://api.nasa.gov';
+// Use epic.gsfc.nasa.gov directly — the api.nasa.gov/EPIC proxy is unreliable.
+// The GSFC endpoint requires no API key.
+const EPIC_BASE = 'https://epic.gsfc.nasa.gov';
 
 // Builds the full image URL for an EPIC image.
 const buildImageUrl = (imageName, dateString) => {
   const [year, month, day] = dateString.split(' ')[0].split('-');
-  return `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${imageName}.png?api_key=${NASA_API_KEY}`;
+  return `${EPIC_BASE}/archive/natural/${year}/${month}/${day}/png/${imageName}.png`;
 };
 
 /**
@@ -23,12 +24,10 @@ router.get('/', cacheMiddleware(3600), async (req, res, next) => {
   try {
     const { date } = req.query;
     const endpoint = date
-      ? `${NASA_BASE}/EPIC/api/natural/date/${date}`
-      : `${NASA_BASE}/EPIC/api/natural/latest`;
+      ? `${EPIC_BASE}/api/natural/date/${date}`
+      : `${EPIC_BASE}/api/natural`;
 
-    const { data } = await axios.get(endpoint, {
-      params: { api_key: NASA_API_KEY },
-    });
+    const { data } = await axios.get(endpoint);
 
     if (!data || data.length === 0) {
       return res.status(404).json({
@@ -60,15 +59,12 @@ router.get('/', cacheMiddleware(3600), async (req, res, next) => {
  */
 router.get('/dates', cacheMiddleware(3600), async (req, res, next) => {
   try {
-    const { data } = await axios.get(`${NASA_BASE}/EPIC/api/natural/all`, {
-      params: { api_key: NASA_API_KEY },
-    });
+    const { data } = await axios.get(`${EPIC_BASE}/api/natural/all`);
 
-    // Return the 30 most recent dates in descending order
+    // GSFC returns dates newest-first; take the 30 most recent
     const dates = data
       .map((d) => d.date)
-      .slice(-30)
-      .reverse();
+      .slice(0, 30);
 
     res.json({ dates });
   } catch (err) {

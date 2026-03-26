@@ -34,10 +34,9 @@ export const asteroidsApi = {
     api.get('/asteroids', { params: { start_date, end_date } }),
 };
 
-// Mars Rover Photos 
+// Mars — NASA Image and Video Library
 export const marsApi = {
-  getPhotos: (params) => api.get('/mars/photos', { params }),
-  getRovers: ()       => api.get('/mars/rovers'),
+  search: (params) => api.get('/mars', { params }),
 };
 
 // EPIC (Earth Imagery) 

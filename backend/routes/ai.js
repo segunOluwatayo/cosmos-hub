@@ -94,28 +94,30 @@ Write a 3 sentence classified threat assessment. Use the terminology of an actua
 
 /**
  * POST /api/ai/mars-scene
- * Describe what a Mars rover camera is seeing
+ * Analyse a NASA archive image of Mars
  */
 router.post('/mars-scene', cacheMiddleware(86400), async (req, res, next) => {
   try {
-    const { roverName, cameraFullName, sol, earthDate, imageUrl } = req.body;
-    if (!roverName || !sol) {
-      return res.status(400).json({ error: 'roverName and sol are required' });
+    const { title, description, date, keywords } = req.body;
+    if (!title) {
+      return res.status(400).json({ error: 'title is required' });
     }
+
+    const keywordStr = Array.isArray(keywords) ? keywords.join(', ') : (keywords || '');
 
     const message = await client.messages.create({
       model: 'claude-sonnet-4-6',
       max_tokens: 250,
       messages: [{
         role: 'user',
-        content: `You are a NASA rover mission analyst writing a geological field observation log.
+        content: `You are a NASA planetary science analyst writing a classified archive entry.
 
-ROVER: ${roverName}
-CAMERA: ${cameraFullName}
-MARTIAN SOL: ${sol}
-EARTH DATE: ${earthDate}
+IMAGE TITLE: ${title}
+DATE: ${date}
+KEYWORDS: ${keywordStr}
+NASA DESCRIPTION: ${description || 'Not provided'}
 
-Write a 2 sentence field observation log entry describing what this rover camera might be capturing on Mars at this point in the mission. Reference the camera type (hazard avoidance, navigation, science instrument, etc.) to infer what kind of data is being gathered. Be scientifically grounded and evocative. No preamble.`,
+Write a 2 sentence scientific field note about this image. Be precise, grounded in planetary science, and evocative. No preamble.`,
       }],
     });
 
