@@ -53,7 +53,7 @@ export default function AIPanel({ fetchFn, label = 'AI ANALYSIS', resultKey = 'a
       <div style={{ padding: '14px 16px', minHeight: '48px' }}>
         {state === 'idle' && (
           <p style={{ fontFamily: 'IBM Plex Mono', fontSize: '10px', color: '#3a3a3a', lineHeight: 1.7 }}>
-            // Press REQUEST to generate an AI analysis of this data using Claude.
+             Press REQUEST to generate an AI analysis of this data using Claude.
           </p>
         )}
         {state === 'loading' && (
