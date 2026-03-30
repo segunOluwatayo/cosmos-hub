@@ -28,12 +28,12 @@ export default function Navbar() {
             }}>⬡</div>
             <div style={{ fontFamily: 'IBM Plex Mono', fontSize: '11px', fontWeight: 700, letterSpacing: '0.25em', color: '#F0E6D3' }}>
               COSMOS<span style={{ color: '#FF8C00' }}>HUB</span>
-              <span style={{ color: '#444', marginLeft: '8px', fontWeight: 400 }}>// NASA ARCHIVE</span>
+              <span className="hidden md:inline" style={{ color: '#444', marginLeft: '8px', fontWeight: 400 }}>// NASA ARCHIVE</span>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <nav style={{ display: 'flex', gap: '2px', alignItems: 'center' }} className="hidden md:flex">
+          <nav style={{ gap: '2px', alignItems: 'center' }} className="hidden md:flex">
             {NAV_ITEMS.map(({ path, label, code }) => (
               <NavLink key={path} to={path} end={path === '/'}
                 style={({ isActive }) => ({
