@@ -43,7 +43,7 @@ DATE: ${date}
 TYPE: ${mediaType === 'video' ? 'Video recording' : 'Photograph'}
 NASA EXPLANATION: ${explanation}
 
-Write only the 3-sentence analysis, no preamble.`,
+Write only the 3-sentence analysis, no preamble. No markdown formatting, plain text only.`,
       }],
     });
 
@@ -82,7 +82,7 @@ LARGEST OBJECT: ${largest?.name} (${largest?.diameterMax.toFixed(3)} km diameter
 CLOSEST APPROACH: ${closest?.name} at ${(closest?.missDistanceKm / 1000000).toFixed(2)}M km
 FASTEST: ${asteroids.sort((a,b) => b.velocityKph - a.velocityKph)[0]?.name} at ${asteroids.sort((a,b) => b.velocityKph - a.velocityKph)[0]?.velocityKph.toLocaleString()} km/h
 
-Write a 3 sentence classified threat assessment. Use the terminology of an actual NASA briefing document. Assess overall threat level (LOW/MODERATE/ELEVATED). No preamble.`,
+Write a 3 sentence classified threat assessment. Use the terminology of an actual NASA briefing document. Assess overall threat level (LOW/MODERATE/ELEVATED). No preamble. No markdown formatting, plain text only.`,
       }],
     });
 
@@ -117,7 +117,7 @@ DATE: ${date}
 KEYWORDS: ${keywordStr}
 NASA DESCRIPTION: ${description || 'Not provided'}
 
-Write a 2 sentence scientific field note about this image. Be precise, grounded in planetary science, and evocative. No preamble.`,
+Write a 2 sentence scientific field note about this image. Be precise, grounded in planetary science, and evocative. No preamble. No markdown formatting, plain text only.`,
       }],
     });
 
