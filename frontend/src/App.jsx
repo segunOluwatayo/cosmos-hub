@@ -27,11 +27,11 @@ export default function App() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           flexWrap: 'wrap', gap: '8px',
         }}>
-          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '8px', color: '#222', letterSpacing: '0.12em' }}>
+          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '8px', color: '#555', letterSpacing: '0.12em' }}>
             COSMOSHUB · NASA DATA INTERFACE · POWERED BY CLAUDE AI
           </span>
           <a href="https://api.nasa.gov" target="_blank" rel="noreferrer"
-            style={{ fontFamily: 'IBM Plex Mono', fontSize: '8px', color: '#2a2a2a', textDecoration: 'none', letterSpacing: '0.1em' }}>
+            style={{ fontFamily: 'IBM Plex Mono', fontSize: '8px', color: '#555', textDecoration: 'none', letterSpacing: '0.1em' }}>
             api.nasa.gov ↗
           </a>
         </footer>
