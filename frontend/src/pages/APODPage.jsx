@@ -32,7 +32,7 @@ function APODCard({ data }) {
         {isVideo ? (
           getVideoType(data.url) === 'iframe' ? (
             <iframe src={data.url} title={data.title} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen
-              style={{ width: '100%', height: '440px', border: 'none', display: 'block' }} />
+              className="apod-iframe" style={{ width: '100%', height: '440px', border: 'none', display: 'block' }} />
           ) : getVideoType(data.url) === 'mp4' ? (
             <video src={data.url} controls style={{ width: '100%', maxHeight: '480px', display: 'block', background: '#0e0e0e' }} />
           ) : (
@@ -183,7 +183,7 @@ export default function APODPage() {
       />
 
       {/* Controls */}
-      <div className="t-card" style={{ padding: '12px 16px', marginBottom: '16px', display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+      <div className="t-card apod-controls" style={{ padding: '12px 16px', marginBottom: '16px', display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', border: '1px solid #262626' }}>
           {[['today','TODAY'],['date','BY DATE'],['range','RANGE']].map(([val, label]) => (
             <button key={val} onClick={() => setMode(val)}

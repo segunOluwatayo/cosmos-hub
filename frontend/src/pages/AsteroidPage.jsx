@@ -157,7 +157,7 @@ export default function AsteroidPage() {
           </div>
 
           {/* Charts + map */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px' }}>
+          <div className="charts-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px' }}>
             {/* Bar chart */}
             <div className="t-card" style={{ padding: '16px' }}>
               <p className="t-label" style={{ marginBottom: '12px', fontSize: '8px' }}>DAILY OBJECT COUNT</p>

@@ -13,7 +13,7 @@ export default function App() {
       <ScrollToTop />
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
-        <main style={{ flex: 1, maxWidth: '1280px', margin: '0 auto', width: '100%', padding: '28px 24px' }}>
+        <main className="main-content" style={{ flex: 1, maxWidth: '1280px', margin: '0 auto', width: '100%', padding: '28px 24px' }}>
           <Routes>
             <Route path="/"          element={<Home />}         />
             <Route path="/apod"      element={<APODPage />}     />

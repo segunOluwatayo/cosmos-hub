@@ -351,6 +351,27 @@ body::after {
     display: flex !important;
     flex-direction: column;
   }
+
+  .charts-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-content {
+    padding: 16px 14px !important;
+  }
+
+  .apod-iframe {
+    height: 240px !important;
+  }
+
+  .apod-controls {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .apod-controls input[type="date"] {
+    width: 100% !important;
+  }
 }
 
 @keyframes pulseAmber {
