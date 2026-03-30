@@ -2,8 +2,8 @@
 
 A NASA data explorer with a classified-mission terminal aesthetic. Built with React + Express, uses real NASA APIs, and Claude AI for contextual analysis on each module.
 
-[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-VISIT-FF8C00?style=for-the-badge)](https://cosmos-hub.vercel.app)
-[![Backend API](https://img.shields.io/badge/BACKEND_API-RENDER-555?style=for-the-badge)](https://cosmos-hub-api.onrender.com/health)
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-VISIT-FF8C00?style=for-the-badge)](https://cosmos-hub-two.vercel.app/)
+[![Backend API](https://img.shields.io/badge/BACKEND_API-RENDER-555?style=for-the-badge)](https://cosmos-hub.onrender.com/health)
 
 ---
 
