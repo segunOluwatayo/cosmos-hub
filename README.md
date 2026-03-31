@@ -1,6 +1,6 @@
 # CosmosHub
 
-A NASA data explorer with a classified-mission terminal aesthetic. Built with React + Express, uses real NASA APIs, and Claude AI for contextual analysis on each module.
+A NASA data explorer with a classified mission terminal aesthetic. Built with React + Express, uses real NASA APIs, and Claude AI for contextual analysis on each module.
 
 [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-VISIT-FF8C00?style=for-the-badge)](https://cosmos-hub-two.vercel.app/)
 [![Backend API](https://img.shields.io/badge/BACKEND_API-RENDER-555?style=for-the-badge)](https://cosmos-hub.onrender.com/health)
@@ -16,14 +16,14 @@ Four modules, each pulling live data from NASA's open APIs:
 - **Mars** — photo gallery from Curiosity, Perseverance, Spirit and Opportunity. Filter by sol and camera. Claude describes the scene based on the rover and instrument
 - **EPIC** — full-disc Earth imagery from the DSCOVR satellite at L1
 
-A few things I'm fairly happy with: the canvas asteroid map (it's Earth-centred and roughly scale-accurate), the server-side caching to avoid hammering NASA's rate limits, and a separate rate limiter on the AI routes to keep API costs from blowing up.
+A few things I'm fairly happy with: the canvas asteroid map (it's Earth centred and roughly scale accurate), the server side caching to avoid hammering NASA's rate limits, and a separate rate limiter on the AI routes to keep API costs from blowing up.
 
 ---
 
 ## Stack
 
 - **Frontend** — React 18, React Router, Vite, Tailwind, Recharts, Axios
-- **Backend** — Node/Express, NodeCache, Helmet, express-rate-limit
+- **Backend** — Node/Express, NodeCache, Helmet, express rate limit
 - **AI** — Anthropic Claude (claude-sonnet-4-6)
 - **Testing** — Jest + Supertest (backend), Vitest + React Testing Library (frontend)
 - **Deployed** — Vercel (frontend) + Render (backend)
